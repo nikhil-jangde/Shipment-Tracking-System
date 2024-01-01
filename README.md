@@ -11,44 +11,44 @@ Welcome to the Shipment Tracking System API documentation. This guide provides d
 ## User APIs
 This api's are related to user related operations e.g. (register user , login user , delete user , update user , verify jwt token)
 
-1. Register User
-• Endpoint
+1. Register User.
+--> Endpoint.
 <img src='https://nikhil-jangde.github.io/githost/create-user-endpoint.png'>
-• Request Body
+--> Request Body.
 <img src='https://nikhil-jangde.github.io/githost/create-user-body.png'>
-3. Login User
-• Endpoint
+3. Login User.
+--> Endpoint.
 <img src='https://nikhil-jangde.github.io/githost/user-login-endpoint.png'>
-• Request Body
+--> Request Body.
 <img src='https://nikhil-jangde.github.io/githost/user-login-body.png'>
-5. Remove User
-• Endpoint
+5. Remove User.
+--> Endpoint.
 <img src='https://nikhil-jangde.github.io/githost/remove-user-endpoint.png'>
-• Request Body
+--> Request Body.
 <img src='https://nikhil-jangde.github.io/githost/remove-user-body.png'>
-6. Update User
-• Endpoint
+6. Update User.
+--> Endpoint.
 <img src='https://nikhil-jangde.github.io/githost/update-user-endpoint.png'>
-• Request Body
+--> Request Body.
 <img src='https://nikhil-jangde.github.io/githost/update-user-body.png'>
-8. Verify Token
-• Endpoint
+8. Verify Token.
+--> Endpoint.
 <img src='https://nikhil-jangde.github.io/githost/verify-token-endpoint.png'>
-• Request Body
+--> Request Body.
 <img src='https://nikhil-jangde.github.io/githost/verify-token-body.png'>
 
 ## Shipment APIs
 This api's are related to Shipments related operations e.g. (create new shipment , update shipment status , update shipment current status )
 
 1. Add Shipment
-   • Endpoint
-   • Request Body
+   --> Endpoint
+   --> Request Body
 2. Update Shipment Status
-   • Endpoint
-   • Request Body
+   --> Endpoint
+   --> Request Body
 3. Update Shipment Current Status
-   • Endpoint
-   • Request Body
+   --> Endpoint
+   --> Request Body
 
 
 
