@@ -7,7 +7,7 @@ Welcome to the Shipment Tracking System API documentation. This guide provides d
  C:\Users\nikhil\Shipment-Tracking-System> npm start
 
 # Base URL
-
+<img src='https://nikhil-jangde.github.io/githost/base-url.png'>
 ## User APIs
 This api's are related to user related operations e.g. (register user , login user , delete user , update user)
 
