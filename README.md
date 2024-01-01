@@ -8,32 +8,48 @@ Welcome to the Shipment Tracking System API documentation. This guide provides d
 
 # Base URL
 <img src='https://nikhil-jangde.github.io/githost/base-url.png'>
+
 ## User APIs
+
 This api's are related to user related operations e.g. (register user , login user , delete user , update user , verify jwt token)
 
 1. Register User.
+   
 --> Endpoint.
 <img src='https://nikhil-jangde.github.io/githost/create-user-endpoint.png'>
+
 --> Request Body.
 <img src='https://nikhil-jangde.github.io/githost/create-user-body.png'>
-3. Login User.
+
+2. Login User.
+   
 --> Endpoint.
 <img src='https://nikhil-jangde.github.io/githost/user-login-endpoint.png'>
+
 --> Request Body.
 <img src='https://nikhil-jangde.github.io/githost/user-login-body.png'>
-5. Remove User.
+
+3. Remove User.
+   
 --> Endpoint.
 <img src='https://nikhil-jangde.github.io/githost/remove-user-endpoint.png'>
+
 --> Request Body.
 <img src='https://nikhil-jangde.github.io/githost/remove-user-body.png'>
-6. Update User.
+
+4. Update User.
+
 --> Endpoint.
 <img src='https://nikhil-jangde.github.io/githost/update-user-endpoint.png'>
+
 --> Request Body.
 <img src='https://nikhil-jangde.github.io/githost/update-user-body.png'>
-8. Verify Token.
+
+5. Verify Token.
+   
 --> Endpoint.
 <img src='https://nikhil-jangde.github.io/githost/verify-token-endpoint.png'>
+
 --> Request Body.
 <img src='https://nikhil-jangde.github.io/githost/verify-token-body.png'>
 
