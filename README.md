@@ -56,15 +56,36 @@ This api's are related to user related operations e.g. (register user , login us
 ## Shipment APIs
 This api's are related to Shipments related operations e.g. (create new shipment , update shipment status , update shipment current status )
 
-## 1. Add Shipment
-   --> Endpoint
-   --> Request Body
-## 2. Update Shipment Status
-   --> Endpoint
-   --> Request Body
-## 3. Update Shipment Current Status
-   --> Endpoint
-   --> Request Body
+## 1. Fetch All Shipments
 
+   --> Endpoint
+   <img src='https://nikhil-jangde.github.io/githost/get-shipment-endpoint.png'>
 
+## 2. Add Shipment
+
+   --> Endpoint
+   <img src='https://nikhil-jangde.github.io/githost/add-shipment-endpoint.png'>
+   
+   --> Request Body
+    <img src='https://nikhil-jangde.github.io/githost/add-shipment-body.png'>
+    
+## 3. Update Shipment Status
+
+   --> Endpoint
+    <img src='https://nikhil-jangde.github.io/githost/location-status-update-endpoint.png'>
+    
+   --> Request Body
+    <img src='https://nikhil-jangde.github.io/githost/location-status-updates-body.png'>
+    
+## 4. Update Shipment Current Status
+
+   --> Endpoint
+    <img src='https://nikhil-jangde.github.io/githost/current-status-update-endpoint.png'>
+    
+   --> Request Body
+    <img src='https://nikhil-jangde.github.io/githost/current-statue-update-body.png'>
+
+ # Conclusion
+ 
+This concludes the Shipment Tracking System API documentation. If you have any questions or issues, please feel free to contact me at nikhiljangde123@gmail.com
 
