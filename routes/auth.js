@@ -9,11 +9,12 @@ require('dotenv').config();
 
 // Authorization middleware to check if the user has admin privileges
 const isAdmin = async (req, res, next) => {
-  const { SenderID } = req.body;
+  const { token } = req.body;
 
   try {
-    // Check if the user with provided SenderID exists in the database
-    const user = await User.findOne({ _id: SenderID });
+    // Verify the token and get user information
+    const decoded = jwt.verify(token, process.env.SECRET_KEY);
+    const user = await User.findOne({ _id: decoded.userId });
 
     // Check if the user is defined and has the 'admin' role
     if (!user || user.role !== 'admin') {
@@ -47,6 +48,16 @@ const verifyToken = (req, res, next) => {
   }
 };
 
+router.get('/All-users', verifyToken, async (req, res) => {
+  try {
+    const {token} = req.body;
+    const users = await User.find();
+    res.status(200).json({users})
+  } catch (error) {
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+})
+
 // API endpoint to verify token and return user information
 router.get('/verifyToken', verifyToken, async (req, res) => {
   try {
@@ -72,7 +83,7 @@ router.get('/verifyToken', verifyToken, async (req, res) => {
 // Endpoint to register a new user
 router.post('/register', isAdmin, async (req, res) => {
   try {
-    const { SenderID, username, password, role } = req.body;
+    const { token, username, password, role } = req.body;
 
     // Check if the username already exists in the database
     const existingUser = await User.findOne({ username });
@@ -91,8 +102,8 @@ router.post('/register', isAdmin, async (req, res) => {
     // Create logs for the user creation
     const addlogs = await UserLogs.findOne({ userId });
     const logs = {
-      timestamp: new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }),
-      action: `User created by ${SenderID} `,
+      timestamp: new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }),
+      action: `User created by ${req.user.username} `,
     };
     addlogs.logs.push(logs);
     await addlogs.save();
@@ -136,9 +147,9 @@ router.post('/login', async (req, res) => {
 });
 
 // Endpoint to remove a user (admin only)
-router.post('/remove-user', isAdmin, async (req, res) => {
+router.post('/remove-user', isAdmin , async (req, res) => {
   try {
-    const { SenderID, userId } = req.body;
+    const { userId } = req.body;
     const user = await User.findByIdAndDelete(userId);
 
     // If the user is not found, return an error
@@ -165,7 +176,7 @@ router.post('/remove-user', isAdmin, async (req, res) => {
 // Endpoint to update user details (admin only)
 router.put('/update-user', isAdmin, async (req, res) => {
   try {
-    const { SenderID, userId, username, role } = req.body;
+    const { userId, username, role } = req.body;
 
     // Update the user details and get the updated user
     const updatedUser = await User.findByIdAndUpdate(

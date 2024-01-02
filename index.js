@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const shipmentRoutes = require('./routes/shipment');
+const userlogsRoutes = require('./routes/userlogs');
+const shipmentlogsRoutes = require('./routes/shipmentlogs')
 
 const app = express();
 const PORT = process.env.PORT;
@@ -23,6 +25,8 @@ db.once('open', () => {
 
 app.use('/auth', authRoutes);
 app.use('/shipment', shipmentRoutes);
+app.use('/userlogs',userlogsRoutes);
+app.use('/shipmentlogs', shipmentlogsRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

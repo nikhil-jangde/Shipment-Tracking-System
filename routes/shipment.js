@@ -169,5 +169,54 @@ router.put('/Current-Status-Update/:trackingNumber', async (req, res) => {
   }
 });
 
+// API endpoint to search and filter shipments with pagination
+router.get('/search', async (req, res) => {
+  try {
+    // Extract query parameters from the request
+    const { trackingNumber, sender, receiver, status, page, pageSize } = req.body;
+
+    // Build the search criteria based on provided parameters
+    const searchCriteria = {};
+
+    if (trackingNumber) searchCriteria.trackingNumber = trackingNumber;
+    if (sender) searchCriteria.sender = sender;
+    if (receiver) searchCriteria.receiver = receiver;
+
+    // Handle status search for both currentStatus and latest statusUpdate
+    if (status) {
+      searchCriteria.$or = [
+        { currentStatus: status },
+        { 'statusUpdates.description': status },
+      ];
+    }
+
+    // Set default values for pagination
+    const pageNumber = parseInt(page) || 1;
+    const size = parseInt(pageSize) || 10;
+    const skip = (pageNumber - 1) * size;
+
+    // Perform the search query with pagination
+    const shipments = await Shipment.find(searchCriteria)
+      .sort({ createdAt: -1 }) // You can adjust the sorting based on your requirements
+      .skip(skip)
+      .limit(size);
+
+    // Count the total number of documents matching the search criteria
+    const totalItems = await Shipment.countDocuments(searchCriteria);
+
+    res.status(200).json({
+      shipments,
+      totalItems,
+      currentPage: pageNumber,
+      pageSize: size,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+
 // Export the router for use in the main application
 module.exports = router;
