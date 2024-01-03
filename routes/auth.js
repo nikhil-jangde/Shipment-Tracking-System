@@ -91,6 +91,12 @@ router.post('/register', isAdmin, async (req, res) => {
       return res.status(201).json({ message: 'User already exists' });
     }
 
+    // Validate the role before proceeding
+    if (!['admin', 'user'].includes(role)) {
+      return res.status(400).json({ error: 'Invalid role. Valid roles are: admin, user' });
+    }
+    
+
     // If username is unique, proceed with user registration
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({ username, password: hashedPassword, role });
@@ -163,7 +169,7 @@ router.post('/remove-user', isAdmin , async (req, res) => {
     const addlogs = await UserLogs.findOne({ userId });
     const logs = {
       timestamp: new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }),
-      action: `User Deleted by ${SenderID} `,
+      action: `User Deleted by ${req.user.username} `,
     };
     addlogs.logs.push(logs);
     await addlogs.save();
@@ -196,7 +202,7 @@ router.put('/update-user', isAdmin, async (req, res) => {
     const addlogs = await UserLogs.findOne({ userId });
     const logs = {
       timestamp: new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }),
-      action: `User updated by ${SenderID} `,
+      action: `User updated by ${req.user.username} `,
     };
     addlogs.logs.push(logs);
     await addlogs.save();
