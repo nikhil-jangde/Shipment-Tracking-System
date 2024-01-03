@@ -19,7 +19,7 @@ This api's are related to user related operations e.g. (register user , login us
 <img src='https://nikhil-jangde.github.io/githost/create-user-endpoint.png'>
 
 --> Request Body.
-<img src='[https://nikhil-jangde.github.io/githost/create-user-body.png](https://nikhil-jangde.github.io/githost/register-user-body.png)'>
+<img src='https://nikhil-jangde.github.io/githost/register-user-body.png'>
 
 ## 2. Login User.
    
