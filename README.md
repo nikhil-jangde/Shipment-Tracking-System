@@ -13,6 +13,14 @@ Welcome to the Shipment Tracking System API documentation. This guide provides d
 
 This api's are related to user related operations e.g. (register user , login user , delete user , update user , verify jwt token)
 
+Use this "Admin-User" Credentials for user related operations ---->
+
+{
+    "username":"username@admin",
+    "password":"admin@1234",
+    "role":"admin"
+}
+
 ## 1. Register User.
    
 --> Endpoint.
@@ -84,6 +92,45 @@ This api's are related to Shipments related operations e.g. (create new shipment
     
    --> Request Body
     <img src='https://nikhil-jangde.github.io/githost/current-statue-update-body.png'>
+
+## 4.Shipment Search / Filter Api
+
+   --> Endpoint
+    <img src='https://nikhil-jangde.github.io/githost/search-user-endpoint.png'>
+    
+   --> Request Body
+    <img src='https://nikhil-jangde.github.io/githost/search-user-body.png'>
+
+   --> Response
+    <img src='https://nikhil-jangde.github.io/githost/search-user-response.png'>
+
+## User-log-APIs
+
+This api's are related to user-logs related operations.
+
+## 1. Get All Users Logs
+
+   --> Endpoint
+    <img src='https://nikhil-jangde.github.io/githost/users-logs-endpoint.png'>
+
+## 2. Get Specific Users Logs by userId
+
+  --> Endpoint
+ <img src='https://nikhil-jangde.github.io/githost/user-logsbyid-endpoint.png'>
+
+ ## Shipment-log-APIs
+
+This api's are related to Shipment-logs related operations.
+
+## 1. Get All Shipments Logs
+
+   --> Endpoint
+    <img src='https://nikhil-jangde.github.io/githost/all-shipmenr-logs.png'>
+
+## 2. Get Specific Shipments Logs by trackingNumber
+
+  --> Endpoint
+ <img src='https://nikhil-jangde.github.io/githost/shipment-logsbyid-endpoint.png'>
 
  # Conclusion
  
